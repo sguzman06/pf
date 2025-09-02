@@ -30,11 +30,11 @@ function App() {
   }, [theme]);
 
   useEffect(() => {
-    // Tu código de Swiper y AOS se queda igual
-    new Swiper('.tools-slider', { /* ... */ });
-    new Swiper('.skills-slider', { /* ... */ });
-    AOS.init({ /* ... */ });
-  }, []);
+    AOS.init({
+    duration: 1000,
+    once: true,
+  });
+}, []);
 
   return (
     <div className="portfolio-container">
@@ -101,36 +101,53 @@ function App() {
         </section>
 
         <section id="habilidades" data-aos="fade-up">
-          <h2>Habilidades y Herramientas</h2>
+  <h2>Habilidades y Herramientas</h2>
+  <div className="habilidades-grid">
 
-          {/* --- INICIO DEL CARRUSEL --- */}
-          <div className="swiper">
-            <div className="swiper-wrapper">
+    {/* --- Bloque 1: Análisis de Datos --- */}
+    <div className="habilidad-bloque">
+      <h3>Análisis de Datos</h3>
+      <ul>
+        <li>SQL</li>
+        <li>Python</li>
+        <li>Pandas</li>
+        <li>Matplotlib</li>
+      </ul>
+    </div>
 
-              {/* --- Habilidades Técnicas --- */}
-                <div className="swiper-slide habilidad-card">Power BI</div>
-                <div className="swiper-slide habilidad-card">SQL</div>
-                <div className="swiper-slide habilidad-card">Python</div>
-                <div className="swiper-slide habilidad-card">Tableau</div>
-                <div className="swiper-slide habilidad-card">Databricks</div>
-                <div className="swiper-slide habilidad-card">DAX</div>
-                <div className="swiper-slide habilidad-card">Pandas</div>
-                <div className="swiper-slide habilidad-card">Excel</div>
-                <div className="swiper-slide habilidad-card">Notion</div>
+    {/* --- Bloque 2: Visualización --- */}
+    <div className="habilidad-bloque">
+      <h3>Visualización</h3>
+      <ul>
+        <li>Power BI</li>
+        <li>Excel</li>
+        <li>Dashboards</li>
+        <li>DAX</li>
+      </ul>
+    </div>
 
-                {/* --- Habilidades Blandas --- */}
-                <div className="swiper-slide habilidad-card">Trabajo en Equipo</div>
-                <div className="swiper-slide habilidad-card">Liderazgo</div>
-                <div className="swiper-slide habilidad-card">Planificación</div>
-                <div className="swiper-slide habilidad-card">Comunicación</div>
+    {/* --- Bloque 3: Programación --- */}
+    <div className="habilidad-bloque">
+      <h3>Programación</h3>
+      <ul>
+        <li>Python</li>
+        <li>SQL</li>
+      </ul>
+    </div>
 
+    {/* --- Bloque 4: Herramientas --- */}
+    <div className="habilidad-bloque">
+      <h3>Herramientas</h3>
+      <ul>
+        <li>Notion</li>
+        <li>Git & GitHub</li>
+        <li>Scrum</li>
+        <li>Jira</li>
+      </ul>
+    </div>
 
-            </div>
-            {/* Bolitas de paginación */}
-            <div className="swiper-pagination"></div>
-          </div>
-          {/* --- FIN DEL CARRUSEL --- */}
-        </section>
+  </div>
+</section>
 
 <section id="experiencia" data-aos="fade-up">
   <h2>Experiencia Profesional</h2>
