@@ -1,0 +1,40 @@
+/* --- DEFINICIÓN DE TEMAS: CLARO Y OSCURO --- */
+
+/* TEMA CLARO (POR DEFECTO) */
+:root {
+  --color-fondo: #E8CFE8;
+  --color-texto-principal: #1C7C78;
+  --color-acento-principal: #E34B48;
+  --color-acento-secundario: #545EA5;
+  --color-fondo-tarjeta: #FFFFFF;
+  --color-texto-tarjeta: #000000;
+  --sombra-acento: 0 0 8px rgba(227, 72, 72, 0.5);
+}
+
+/* TEMA OSCURO (SE ACTIVA CON JAVASCRIPT) */
+[data-theme='dark'] {
+  --color-fondo: #2C2A4A;
+  --color-texto-principal: #F5F5F5;
+  --color-acento-principal: #FF6AC1;
+  --color-acento-secundario: #00F5D4;
+  --color-fondo-tarjeta: rgba(20, 20, 40, 0.6);
+  --color-texto-tarjeta: #F5F5F5;
+  --sombra-acento: 0 0 8px var(--color-acento-principal);
+}
+
+/* --- ESTILOS BASE (NO CAMBIAN) --- */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=M+PLUS+Rounded+1c:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  background-color: var(--color-fondo);
+  color: var(--color-texto-principal);
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', sans-serif;
+}
+

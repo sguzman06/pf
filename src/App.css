@@ -1,0 +1,279 @@
+/* src/App.css */
+
+.portfolio-container {
+  max-width: 900px; /* Ancho máximo para que no se estire demasiado en pantallas grandes */
+  margin: 0 auto; /* Centra el contenido en la página */
+  padding: 2rem; /* Espacio interno para que el contenido no pegue en los bordes */
+}
+
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 4rem; /* Espacio debajo de la cabecera */
+}
+
+section {
+  margin-bottom: 4rem; /* Espacio entre cada sección */
+}
+
+/* Estilo simple para la barra de navegación */
+.portfolio-header nav a {
+  color: var(--cian-neon);
+  margin: 0 1rem;
+  text-decoration: none;
+  font-family: 'DotGothic16', sans-serif;
+}
+
+/* --- FASE 4.1: ESTILOS DE LA CABECERA --- */
+
+.portfolio-header {
+  padding-bottom: 2rem; /* Añadimos espacio debajo para que la línea respire */
+  border-bottom: 2px solid; /* Creamos el borde inferior */
+  border-image: linear-gradient(to right, var(--rosa-atardecer), var(--cian-neon)) 1; /* Le damos el color degradado */
+}
+
+.portfolio-header h1 {
+  font-size: 2.5rem; /* Hacemos tu nombre un poco más grande */
+  color: var(--crema-monitor);
+  /* Le damos el efecto de brillo (glow) que definimos en las variables */
+  text-shadow: var(--sombra-rosa);
+}
+
+/* Efecto hover para los links de navegación */
+.portfolio-header nav a:hover {
+  color: var(--rosa-atardecer);
+  text-shadow: var(--sombra-rosa);
+  transition: all 0.2s ease-in-out; /* Transición suave */
+}
+
+
+
+/* --- FASE 4.2: ESTILOS DE LA SECCIÓN DE PROYECTOS --- */
+
+.proyectos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.proyecto-card {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(var(--cian-neon-rgb), 0.4); /* <--- Borde más sutil */
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.proyecto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px var(--cian-neon);
+}
+
+.card-preview {
+  height: 180px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.boton-repo {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 1px solid var(--rosa-atardecer);
+  color: var(--rosa-atardecer);
+  text-decoration: none;
+  border-radius: 4px;
+  font-family: 'DotGothic16', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.boton-repo:hover {
+  background-color: var(--rosa-atardecer);
+  color: var(--violeta-noche);
+}
+
+/* --- FASE 4.4: ESTILOS DEL CARRUSEL DE HABILIDADES --- */
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  width: 200px;
+  height: 100px;
+}
+
+.habilidad-card {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--cian-neon);
+  border-radius: 8px;
+
+  /* Centramos el texto dentro de la tarjeta */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-family: 'DotGothic16', sans-serif;
+  color: var(--cian-neon);
+  transition: all 0.3s ease;
+}
+
+.habilidad-card:hover {
+  color: var(--rosa-atardecer);
+  border-color: var(--rosa-atardecer);
+  transform: scale(1.05);
+}
+
+/* Estilo para las bolitas de paginación */
+.swiper-pagination-bullet-active {
+  background: var(--rosa-atardecer) !important;
+}
+
+/* --- FASE 4.3: ESTILOS DE LA SECCIÓN "SOBRE MÍ" --- */
+
+
+/* --- MEJORAS DE LEGIBILIDAD ESPECÍFICAS --- */
+#sobre-mi {
+  /* Le quitamos el fondo de color sólido */
+  background-color: rgba(var(--violeta-noche-rgb), 0.28); /* Un fondo semitransparente más oscuro */
+  padding: 2.5rem;
+  border-radius: 12px;
+  margin-bottom: 4rem;
+  /* Le damos un borde más suave, solo arriba y abajo */
+  border-top: 1px solid rgba(var(--rosa-atardecer-rgb), 0.5);
+  border-bottom: 1px solid rgba(var(--rosa-atardecer-rgb), 0.5);
+}
+
+
+.sobre-mi-layout {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.sobre-mi-imagen {
+  width: 300px; /* Ancho fijo para la imagen */
+  height: 300px; /* Alto fijo */
+  border-radius: 50%; /* ¡La hacemos redonda! */
+  border: 2px solid var(--rosa-atardecer);
+  object-fit: cover; /* Se asegura de que la imagen cubra el círculo sin deformarse */
+}
+
+.sobre-mi-texto h3 {
+  color: var(--cian-neon);
+}
+
+
+/* --- ESTILOS DE LA SECCIÓN "CONTACTO" --- */
+.contacto-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.contacto-links a {
+  color: var(--cian-neon);
+  font-size: 3rem; /* Tamaño de los íconos */
+  transition: all 0.3s ease;
+}
+
+.contacto-links a:hover {
+  color: var(--rosa-atardecer);
+  transform: scale(1.1);
+}
+
+
+/* --- FASE 5: TOQUES FINALES --- */
+
+/* 1. Cursor Personalizado */
+/* Escondemos el cursor por defecto y usamos uno custom */
+html {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewport="0 0 100 100" style="fill:black;font-size:14px;"><circle cx="10" cy="10" r="5" style="fill:rgb(240,234,214); stroke:rgb(255,105,180); stroke-width:2px;"/></svg>') 10 10, auto;
+}
+
+/* 2. Efecto de líneas de pantalla (Scanlines) */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.3) 0px,
+    rgba(0, 0, 0, 0.3) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  /* Esto evita que el efecto interfiera con los clics del mouse */
+  pointer-events: none; 
+  /* ¡La clave es que sea muy sutil! */
+  opacity: 0.05; 
+  z-index: 9999;
+}
+
+
+/* --- ESTILOS SECCIÓN EXPERIENCIA --- */
+.experiencia-item {
+  border-left: 2px solid var(--cian-neon);
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.experiencia-item h4 {
+  margin: 0;
+  color: var(--crema-monitor);
+}
+
+.experiencia-info {
+  font-size: 0.9rem;
+  color: var(--cian-neon);
+  margin: 0.25rem 0 0.5rem 0;
+}
+
+
+/* --- ESTILOS SECCIÓN EXPERIENCIA --- */
+#experiencia {
+  margin-bottom: 4rem;
+}
+
+.experiencia-item {
+  border-left: 2px solid var(--cian-neon);
+  padding-left: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.experiencia-item:last-child {
+  margin-bottom: 0;
+}
+
+.experiencia-item h4 {
+  margin: 0;
+  color: var(--crema-monitor);
+}
+
+.experiencia-info {
+  font-size: 0.9rem;
+  color: var(--cian-neon);
+  margin: 0.25rem 0 0.5rem 0;
+}
+
+
+/* --- ESTILOS PARA EL BOTÓN DE CAMBIO DE TEMA --- */
+.theme-toggle-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem; /* Tamaño del emoji */
+  padding: 0;
+  margin-left: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle-button:hover {
+  transform: scale(1.2) rotate(15deg);
+}
