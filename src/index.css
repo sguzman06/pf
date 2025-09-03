@@ -1,9 +1,13 @@
-/* --- DEFINICIÓN DE TEMAS: CLARO Y OSCURO --- */
+/* --- FASE FINAL: DEFINICIÓN DE TEMAS DUALES --- */
 
-/* TEMA CLARO (POR DEFECTO) */
+/* 1. Importamos las fuentes para AMBOS temas */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=M+PLUS+Rounded+1c:wght@400;700&display=swap');
+
+
+/* TEMA CLARO (POR DEFECTO) - Estilo Boceto */
 :root {
   --color-fondo: #E8CFE8;
-  --color-texto-principal: #1C7C78;
+  --color-texto: #1C7C78;
   --color-acento-principal: #E34B48;
   --color-acento-secundario: #545EA5;
   --color-fondo-tarjeta: #FFFFFF;
@@ -11,10 +15,10 @@
   --sombra-acento: 0 0 8px rgba(227, 72, 72, 0.5);
 }
 
-/* TEMA OSCURO (SE ACTIVA CON JAVASCRIPT) */
+/* TEMA OSCURO (SE ACTIVA CON EL BOTÓN) - Estilo Nocturno/Neón */
 [data-theme='dark'] {
   --color-fondo: #2C2A4A;
-  --color-texto-principal: #F5F5F5;
+  --color-texto: #F5F5F5;
   --color-acento-principal: #FF6AC1;
   --color-acento-secundario: #00F5D4;
   --color-fondo-tarjeta: rgba(20, 20, 40, 0.6);
@@ -22,19 +26,17 @@
   --sombra-acento: 0 0 8px var(--color-acento-principal);
 }
 
-/* --- ESTILOS BASE (NO CAMBIAN) --- */
-
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=M+PLUS+Rounded+1c:wght@400;700&display=swap');
+/* --- ESTILOS BASE --- */
 
 body {
   margin: 0;
   background-color: var(--color-fondo);
-  color: var(--color-texto-principal);
+  color: var(--color-texto);
   font-family: 'M PLUS Rounded 1c', sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Inter', sans-serif; /* Nueva fuente para títulos en ambos modos */
 }
 

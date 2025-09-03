@@ -1,11 +1,7 @@
 // src/App.tsx
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-// FORMA MODERNA DE IMPORTAR LIBRERÍAS
-import Swiper from 'swiper';
-import 'swiper/css'; // Estilos base de Swiper
-import 'swiper/css/pagination'; // Estilos para las "bolitas" de navegación
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -13,7 +9,14 @@ import 'aos/dist/aos.css';
 // TUS OTROS IMPORTS
 import './App.css';
 import miAvatar from './assets/avatar.png';
-import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
+
+// Añade IoLocationSharp, FaGraduationCap, y FaCode a la lista
+import { FaLinkedin, FaGithub, FaEnvelope, FaGraduationCap, FaCode, FaTasks, FaRecordVinyl  } from 'react-icons/fa';
+
+// Icon from Ionicons 5
+import { IoLocationSharp, IoCodeSlash, IoMail } from 'react-icons/io5';
+
+
 //import miVideo from './assets/videos/fondo1.mp4';
 
 
@@ -42,7 +45,7 @@ function App() {
 
       <nav className="navbar">
         <div className="navbar-container">
-          <a href="#" className="navbar-logo">SOFÍA GUZMÁN</a>
+          <a href="#" className="navbar-logo">Mi Portfolio</a>
           <div className="navbar-links">
             <a href="#experiencia">Experiencia</a>
             <a href="#proyectos">Proyectos</a>
@@ -65,25 +68,30 @@ function App() {
               <img src={miAvatar} alt="Avatar de Sofía Guzmán" className="sobre-mi-imagen" />
             </div>
             <div className="sobre-mi-texto">
-              <h3>👋 Hola! Soy Sofi,</h3>
+              <h2> Sobre Mí</h2>
+              <ul className="sobre-mi-lista">
+                <li>
+                  <FaGraduationCap className="lista-icono" />
+                  Estudiante de Ingeniería Informática en UBA
+                </li>
+                <li>
+                  <FaCode className="lista-icono" />
+                  Enfoque en Análisis de Datos y Gestión SAP
+                </li>
+                <li>
+                  <IoLocationSharp className="lista-icono" />
+                  Buenos Aires, Argentina
+                </li>
+              </ul>
               <p>
-                 Estudiante de Ingeniería Informática con foco en análisis de datos 📊 y gestión SAP 💻.
+                Apasionada por transformar datos en decisiones, buscando siempre generar un impacto tangible y duradero en cada proyecto.
               </p>
-              <p>
-                 Apasionada por transformar datos en decisiones claras y efectivas 🎯, combino habilidades técnicas (MySQL, Power BI, Python, JavaScript) con una fuerte capacidad para planificar, comunicar y colaborar en equipo 🤝.
-              </p>
-              <p>
-                Me motiva aportar soluciones creativas a desafíos reales 💡, buscando siempre generar un impacto tangible y duradero. 
-              </p>
-              <p>
-                Más que transmitir información, aspiro a conectar y dejar una huella significativa en cada proyecto ✨.
-              </p>
-            </div>
+</div>
           </div>
         </section>
 
         <section id="proyectos" data-aos="fade-up">
-          <h2>Proyectos</h2>
+          <h2><FaTasks /> Proyectos Destacados</h2>
           <div className="proyectos-grid">
             <div className="proyecto-card">
               <div className="card-preview"></div>
@@ -100,9 +108,9 @@ function App() {
           </div>
         </section>
 
-        <section id="habilidades" data-aos="fade-up">
-  <h2>Habilidades y Herramientas</h2>
-  <div className="habilidades-grid">
+   <section id="habilidades" data-aos="fade-up">
+    <h2><IoCodeSlash /> Habilidades y Herramientas</h2>
+      <div className="habilidades-grid">
 
     {/* --- Bloque 1: Análisis de Datos --- */}
     <div className="habilidad-bloque">
@@ -164,7 +172,35 @@ function App() {
 </section>
 
         <section id="contacto" data-aos="fade-up">
-          <h2>Contacto</h2>
+          <section id="contacto" data-aos="fade-up">
+                    <h2>Envíame un Mensaje</h2>
+                    <form 
+                      name="contact" 
+                      method="POST" 
+                      data-netlify="true" 
+                      className="contact-form"
+                    >
+                      <input type="hidden" name="form-name" value="contact" />
+
+                      <div className="form-group">
+                        <label htmlFor="name">Nombre</label>
+                        <input type="text" id="name" name="name" required />
+                      </div>
+
+                      <div className="form-group">
+                        <label htmlFor="email">Email</label>
+                        <input type="email" id="email" name="email" required />
+                      </div>
+
+                      <div className="form-group">
+                        <label htmlFor="message">Mensaje</label>
+                        <textarea id="message" name="message" rows={5} required></textarea>
+                      </div>
+
+                      <button type="submit" className="boton-form">Enviar</button>
+                    </form>
+                  </section>
+          <h2><IoMail /> Envíame un Mensaje</h2>
           <section id="contacto">
               <div className="contacto-links">
                 <a href="https://www.linkedin.com/in/sguzman06/" target="_blank" rel="noopener noreferrer">

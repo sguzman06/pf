@@ -195,15 +195,6 @@ section {
   transform: scale(1.1);
 }
 
-
-/* --- FASE 5: TOQUES FINALES --- */
-
-/* 1. Cursor Personalizado */
-/* Escondemos el cursor por defecto y usamos uno custom */
-html {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewport="0 0 100 100" style="fill:black;font-size:14px;"><circle cx="10" cy="10" r="5" style="fill:rgb(240,234,214); stroke:rgb(255,105,180); stroke-width:2px;"/></svg>') 10 10, auto;
-}
-
 /* 2. Efecto de líneas de pantalla (Scanlines) */
 body::after {
   content: "";
@@ -284,48 +275,49 @@ body::after {
   transition: transform 0.3s ease;
 }
 
-/* --- ESTILOS PARA LA BARRA DE NAVEGACIÓN FIJA --- */
+/* --- ESTILOS DE COMPONENTES CON AJUSTES FINALES --- */
 
+/* --- BARRA DE NAVEGACIÓN --- */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--color-fondo);
-  border-bottom: 1px solid var(--color-acento-principal);
   z-index: 1000;
-  padding: 1rem 2rem; /* Aumentamos un poco el padding vertical */
+  padding: 1rem 2rem;
   box-sizing: border-box;
   transition: background-color 0.3s ease;
+  
+  /* Efecto Vidrio para Modo Claro */
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px dystopian novels6px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .navbar-container {
   max-width: 1100px;
   margin: 0 auto;
-  display: flex; /* <-- La clave: activa Flexbox */
-  justify-content: space-between; /* <-- Empuja el logo y los links a los extremos opuestos */
-  align-items: center; /* <-- Alinea todo verticalmente al centro */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-logo {
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--color-texto-principal);
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem; /* +2px más grande */
+  color: var(--color-acento-secundario);
   text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.navbar-links {
-  display: flex; /* <-- Hacemos que los links y el botón también usen Flexbox */
-  align-items: center;
-  gap: 2rem; /* <-- Una forma moderna de añadir espacio entre los links y el botón */
 }
 
 .navbar-links a {
-  color: var(--color-texto-principal);
+  color: var(--color-texto);
   text-decoration: none;
-  font-size: 0.9rem;
+  margin-left: 1.5rem;
+  font-size: 1rem; /* +2px más grande */
+  font-weight: 700; /* Con más "relleno" */
   transition: color 0.2s ease;
 }
 
@@ -333,15 +325,96 @@ body::after {
   color: var(--color-acento-principal);
 }
 
-.theme-toggle-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.5rem;
-  padding: 0;
-  transition: transform 0.3s ease;
-  line-height: 1; /* Asegura que el emoji no añada altura extra */
+/* --- AJUSTES PARA NAVBAR EN MODO OSCURO --- */
+[data-theme='dark'] .navbar {
+  /* Fondo más opaco para mejorar legibilidad ----   MODIFICADO */ 
+  background-color: rgba(28, 27, 29, 0.562); 
 }
+
+[data-theme='dark'] .navbar-logo {
+  color: var(--color-acento-secundario); /* Turquesa */
+}
+
+[data-theme='dark'] .navbar-links a {
+  color: var(--color-texto); /* Blanco Hueso */
+  transition: background-color 0.3s ease;
+}
+
+[data-theme='dark'] .navbar-links a:hover {
+  color: var(--color-acento-secundario); /* Turquesa del modo oscuro */
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+main {
+  padding-top: 80px;
+}
+
+.portfolio-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+section {
+  padding: 4rem 0; /* Espacio vertical entre secciones */
+}
+
+/* --- HERO / SOBRE MÍ --- */
+#sobre-mi {
+  /* Contenedor con fondo lavanda como pediste */
+  background-color: var(--color-fondo); 
+  padding: 3rem;
+  border-radius: 20px;
+}
+
+.sobre-mi-layout {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.sobre-mi-imagen {
+  width: 250px; /* Un poco más pequeño para equilibrar */
+  height: 250px;
+  border-radius: 50%;
+  border: 2px solid var(--color-acento-principal);
+  object-fit: cover;
+}
+
+.sobre-mi-texto h3 {
+  /* Letras "violetas" (usamos el azul fuerte de la paleta) */
+  color: var(--color-acento-secundario); 
+  font-size: 2rem;
+}
+
+/* --- PROYECTOS Y OTRAS SECCIONES CON FONDO BLANCO --- */
+#projects, #habilidades, #contact {
+  background-color: var(--color-blanco);
+  padding: 3rem;
+  border-radius: 20px;
+  margin-top: 2rem;
+}
+
+/* --- CONTACTO --- */
+.contacto-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.contacto-links a {
+  color: var(--color-acento-secundario);
+  font-size: 3.5rem; /* + pixeles para los logos */
+  transition: transform 0.3s ease; /* Efecto de movimiento sutil */
+}
+
+.contacto-links a:hover {
+  color: var(--color-acento-principal);
+  transform: translateY(-5px); /* Se mueve hacia arriba */
+}
+
+/* ... aquí irían los demás estilos que ya teníamos para Habilidades, etc. ... */
+/* Asegúrate de que los estilos de las tarjetas de proyectos y habilidades ahora usen --color-blanco como fondo y --color-texto-tarjeta como color de texto */
 
 .theme-toggle-button:hover {
   transform: scale(1.2) rotate(15deg);
@@ -350,4 +423,94 @@ body::after {
 /* Empujamos todo el contenido principal hacia abajo */
 main {
   padding-top: 80px;
+}
+
+/* --- ESTILOS PARA LA NUEVA SECCIÓN "SOBRE MÍ" --- */
+.sobre-mi-lista {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.sobre-mi-lista li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.lista-icono {
+  color: var(--color-acento-principal); /* El color terracota */
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+
+/* --- ESTILOS PARA EL FORMULARIO DE CONTACTO --- */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--color-fondo-tarjeta);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(var(--cian-neon-rgb), 0.4);
+  color: var(--color-texto-tarjeta);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-acento-secundario);
+  background-color: rgba(0,0,0,0.1);
+  color: var(--color-texto-tarjeta);
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  box-sizing: border-box; /* Importante para que el padding no rompa el ancho */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-acento-principal);
+  box-shadow: 0 0 8px var(--color-acento-principal);
+}
+
+.boton-form {
+  /* Reutilizamos el estilo del botón de repositorio */
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-acento-principal);
+  border: 1px solid var(--color-acento-principal);
+  color: var(--color-blanco);
+  text-decoration: none;
+  border-radius: 8px;
+  font-family: 'Orbitron', sans-serif;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 100%; /* Hacemos que ocupe todo el ancho */
+}
+
+.boton-form:hover {
+  background-color: var(--color-acento-secundario);
+  border-color: var(--color-acento-secundario);
+}
+
+section > h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  /* --- LÍNEAS NUEVAS --- */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; /* Espacio entre el ícono y el texto */
 }
